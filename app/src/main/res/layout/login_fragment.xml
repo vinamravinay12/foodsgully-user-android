@@ -8,6 +8,10 @@
             name="loginVM"
             type="com.foodsgully.foodsgullyuser.viewmodels.LoginViewModel" />
     </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,7 +45,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:layout_marginStart="@dimen/_32sdp"
-            android:layout_marginTop="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_34sdp"
             android:layout_marginEnd="@dimen/_32sdp"
             android:background="@drawable/shape_edit_text"
             android:gravity="center_vertical"
@@ -157,4 +161,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvNoAccount" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
