@@ -8,4 +8,9 @@ object FoodsGullyUtils {
     fun getToken(context : Context) : String {
         return ""
     }
+
+    @JvmStatic
+    fun getDefaultErrorMessage(context: Context?): String {
+        return ""
+    }
 }

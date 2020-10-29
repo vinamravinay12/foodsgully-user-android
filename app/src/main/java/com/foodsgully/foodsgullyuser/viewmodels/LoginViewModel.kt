@@ -3,6 +3,11 @@ package com.foodsgully.foodsgullyuser.viewmodels
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.foodsgully.foodsgullyuser.models.APIError
+import com.foodsgully.foodsgullyuser.models.GenericResponse
+import com.foodsgully.foodsgullyuser.models.postdatamodels.LoginData
+import com.foodsgully.foodsgullyuser.models.responsemodels.User
+import com.foodsgully.foodsgullyuser.viewmodels.repositories.LoginRepository
 import com.niro.foodsgullyuser.R
 import com.wajahatkarim3.easyvalidation.core.view_ktx.validEmail
 
@@ -52,12 +57,14 @@ class LoginViewModel : ViewModel() {
     }
 
 
-    fun validateLogin(context: Context) : Boolean {
+    private fun validateLogin(context: Context) : Boolean {
         return validateEmail(context) && validatePassword(context)
     }
 
-    fun loginUser() {
+    fun loginUser(loginData: LoginData,context: Context) : MutableLiveData<GenericResponse>? {
 
+        if(!validateLogin(context)) return null
+        return LoginRepository<User>(loginData,context).getResponse()
     }
 
 }

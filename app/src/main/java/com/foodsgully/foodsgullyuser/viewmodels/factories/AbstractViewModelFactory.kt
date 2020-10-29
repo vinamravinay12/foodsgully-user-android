@@ -1,7 +1,6 @@
-package com.foodsgully.foodsgullyuser.viewmodels
+package com.foodsgully.foodsgullyuser.viewmodels.factories
 
 
-import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner

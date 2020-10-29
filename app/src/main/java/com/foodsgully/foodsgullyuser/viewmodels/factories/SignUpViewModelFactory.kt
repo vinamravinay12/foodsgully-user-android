@@ -1,4 +1,4 @@
-package com.foodsgully.foodsgullyuser.viewmodels
+package com.foodsgully.foodsgullyuser.viewmodels.factories
 
 import androidx.lifecycle.ViewModel
 import com.niro.niroapp.viewmodels.LoginViewModel
