@@ -12,12 +12,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_22sdp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/_22sdp"
         android:background="@drawable/search_box"
         android:backgroundTint="@color/colorSearchBackground"
         android:drawableEnd="@drawable/ic_search"
-        android:elevation="@dimen/_2dp"
 
+        android:elevation="@dimen/_2dp"
         android:ems="10"
         android:hint="@string/hint_search_product"
         android:inputType="textPersonName"
@@ -28,14 +29,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="116dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:src="@drawable/ic_menu_24"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="19dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
