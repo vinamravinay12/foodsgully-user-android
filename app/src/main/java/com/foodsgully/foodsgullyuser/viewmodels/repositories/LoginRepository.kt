@@ -10,14 +10,16 @@ import com.foodsgully.foodsgullyuser.models.Success
 import com.foodsgully.foodsgullyuser.models.postdatamodels.LoginData
 import com.foodsgully.foodsgullyuser.models.responsemodels.GenericAPIResponse
 import com.foodsgully.foodsgullyuser.models.responsemodels.User
+import com.foodsgully.foodsgullyuser.utils.FoodsGullyConstants
 import com.google.gson.Gson
+import com.niro.niroapp.database.SharedPreferenceManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
 
-class LoginRepository<T>(private val loginData : LoginData,context : Context?)  : Repository(context){
+class LoginRepository<T>(private val loginData : LoginData, private val context : Context?)  : Repository(context){
 
 
     override fun getResponse(): MutableLiveData<GenericResponse> {
@@ -51,6 +53,8 @@ class LoginRepository<T>(private val loginData : LoginData,context : Context?)  
                     }
                 }
 
+                storeData(response.body()?.token , FoodsGullyConstants.USER_TOKEN,context = context)
+                storeData(response.body()?.responseData,FoodsGullyConstants.USER_DATA,context)
                 val success = Success<T>(response.body() as? T)
                 responseData.value = success
             }
@@ -60,5 +64,11 @@ class LoginRepository<T>(private val loginData : LoginData,context : Context?)  
         responseData.value = loader
         return responseData
 
+    }
+
+    private fun storeData(data : Any?,key : String,context: Context?) {
+        if (context != null) {
+            SharedPreferenceManager(context,FoodsGullyConstants.LOGIN_SP).storeComplexObjectPreference(key,data)
+        }
     }
 }

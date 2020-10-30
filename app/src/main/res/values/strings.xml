@@ -9,4 +9,32 @@
     <string name="error_empty_email">Please enter the Email!</string>
     <string name="invalid_email">Email you entered is invalid!</string>
     <string name="error_empty_password">Please enter the password!</string>
+    <string name="something_went_wrong">Something Went Wrong</string>
+    <string name="login_in">Login in...</string>
+    <string name="btn_txt_next">Next</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="current_location">Use Current Location</string>
+    <string name="lbl_house_no">House No./Flat No.*</string>
+    <string name="hint_house_no">C-12/2</string>
+    <string name="lbl_floor">Floor*</string>
+    <string name="hint_floor">1st floor</string>
+    <string name="lbl_address">Address*</string>
+    <string name="hint_address">Ashok Apartments, Gomti Nagar</string>
+    <string name="lbl_pin">Pin*</string>
+    <string name="hint_pin">100001</string>
+    <string name="lbl_landmark">Landmark</string>
+    <string name="hint_landmark">Near Bata Showroom</string>
+    <string name="hint_search_product">Search Product</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>

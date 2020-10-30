@@ -1,9 +1,12 @@
 package com.foodsgully.foodsgullyuser.utils
 
-import android.app.ProgressDialog
+
 import android.content.Context
 import android.view.View
+import carbon.dialog.ProgressDialog
 import com.google.android.material.snackbar.Snackbar
+import com.niro.foodsgullyuser.R
+
 import com.niro.niroapp.database.SharedPreferenceManager
 
 object FoodsGullyUtils {
@@ -17,23 +20,28 @@ object FoodsGullyUtils {
     @JvmStatic
     fun showLoaderProgress(message: String, context: Context): ProgressDialog {
         val progressDialog = ProgressDialog(context)
-        progressDialog.setMessage(message
-        progressDialog.show(
+        progressDialog.setText(message)
+        progressDialog.show()
         return progressDialog
+    }
+
+    @JvmStatic
+    fun dismissProgress(progressDialog: ProgressDialog?) {
+        if(progressDialog != null && progressDialog.isShowing) progressDialog.dismiss()
     }
 
     @JvmStatic
     fun getToken(context: Context): String? {
         return "Bearer " + SharedPreferenceManager(
             context,
-            NiroAppConstants.LOGIN_SP
-        ).getStringPreference(NiroAppConstants.USER_TOKEN)
+            FoodsGullyConstants.LOGIN_SP
+        ).getStringPreference(FoodsGullyConstants.USER_TOKEN)
     }
 
 
     @JvmStatic
     fun getDefaultErrorMessage(context: Context?): String {
 
-        return context?.getString(R.string.something_went_wrong) ?: NiroAppConstants.SWW
+        return context?.getString(R.string.something_went_wrong) ?: FoodsGullyConstants.SWW
     }
 }

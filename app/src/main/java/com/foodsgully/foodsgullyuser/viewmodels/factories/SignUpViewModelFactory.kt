@@ -1,10 +1,10 @@
 package com.foodsgully.foodsgullyuser.viewmodels.factories
 
 import androidx.lifecycle.ViewModel
-import com.niro.niroapp.viewmodels.LoginViewModel
-import com.niro.niroapp.viewmodels.SignupViewModel
+import com.foodsgully.foodsgullyuser.viewmodels.SignUpViewModel
 
-class SignUpViewModelFactory(private val phoneNumber : String?) : AbstractViewModelFactory<SignupViewModel>() {
+
+class SignUpViewModelFactory(private val phoneNumber : String?) : AbstractViewModelFactory<SignUpViewModel>() {
 
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

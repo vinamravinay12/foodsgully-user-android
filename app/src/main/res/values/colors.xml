@@ -9,4 +9,5 @@
     <color name="input_error_color">#4C5A23</color>
     <color name="btn_login_color">#D62E2E</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorSearchBackground">#F6F6F6</color>
 </resources>

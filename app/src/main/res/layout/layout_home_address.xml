@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginVM"
+            type="com.foodsgully.foodsgullyuser.viewmodels.LoginViewModel" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.foodsgully.foodsgullyuser.fragments.LoginFragment">
+
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_27sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/foodsgully_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvHeaderText"
+                style="@style/LoginHeaderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_37sdp"
+                android:layout_marginTop="@dimen/_117sdp"
+                android:text="@string/txt_signup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCurrentLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:drawableStart="@drawable/ic_location_red_24"
+                android:drawablePadding="@dimen/_9sdp"
+                android:gravity="center"
+                android:text="@string/current_location"
+                android:textAppearance="@style/txtLink"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeaderText" />
+
+            <EditText
+                android:id="@+id/etHouseNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/shape_edit_text"
+                android:ems="8"
+                android:paddingStart="@dimen/_28dp"
+                android:paddingTop="@dimen/_16dp"
+                android:paddingEnd="@dimen/_28dp"
+                android:paddingBottom="@dimen/_16dp"
+                android:textAppearance="@style/edit_text_appearance"
+                android:hint="@string/hint_house_no"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHouseNo" />
+
+            <TextView
+                android:id="@+id/tvFloorNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_floor"
+                android:textAppearance="@style/lbl_text_style"
+                app:layout_constraintStart_toStartOf="@+id/etFloorNumber"
+                app:layout_constraintTop_toTopOf="@+id/tvHouseNo" />
+
+            <TextView
+                android:id="@+id/tvHouseNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/lbl_house_no"
+                android:textAppearance="@style/lbl_text_style"
+                app:layout_constraintStart_toStartOf="@+id/etHouseNumber"
+                app:layout_constraintTop_toBottomOf="@+id/tvCurrentLocation" />
+
+            <EditText
+                android:id="@+id/etFloorNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                android:paddingStart="@dimen/_12dp"
+                android:paddingTop="@dimen/_16dp"
+                android:paddingEnd="@dimen/_12dp"
+                android:paddingBottom="@dimen/_16dp"
+                android:textAppearance="@style/edit_text_appearance"
+                android:background="@drawable/shape_edit_text"
+                android:hint="@string/hint_floor"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etHouseNumber"
+                app:layout_constraintTop_toTopOf="@+id/etHouseNumber" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/lbl_address"
+                android:textAppearance="@style/lbl_text_style"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etHouseNumber" />
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                android:background="@drawable/shape_edit_text"
+                android:ellipsize="end"
+                android:hint="@string/hint_address"
+                android:lines="1"
+                android:maxLines="1"
+                android:focusable="false"
+                android:clickable="true"
+                android:paddingStart="@dimen/_12dp"
+                android:paddingTop="@dimen/_16dp"
+                android:paddingEnd="@dimen/_12dp"
+                android:paddingBottom="@dimen/_16dp"
+                android:textAppearance="@style/edit_text_appearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+            <TextView
+                android:id="@+id/tvPin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/lbl_pin"
+                android:textAppearance="@style/lbl_text_style"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+
+            <EditText
+                android:id="@+id/etPin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/shape_edit_text"
+                android:ems="6"
+                android:paddingStart="@dimen/_12dp"
+                android:paddingTop="@dimen/_16dp"
+                android:paddingEnd="@dimen/_12dp"
+                android:paddingBottom="@dimen/_16dp"
+                android:enabled="false"
+                android:focusable="false"
+                android:textAppearance="@style/edit_text_appearance"
+                android:hint="@string/hint_pin"
+                app:layout_constraintStart_toStartOf="@+id/tvPin"
+                app:layout_constraintTop_toBottomOf="@+id/tvPin" />
+
+            <TextView
+                android:id="@+id/tvLandmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_landmark"
+                android:textAppearance="@style/lbl_text_style"
+                app:layout_constraintStart_toStartOf="@+id/etLandmark"
+                app:layout_constraintTop_toTopOf="@+id/tvPin" />
+
+            <EditText
+                android:id="@+id/etLandmark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                android:background="@drawable/shape_edit_text"
+                android:hint="@string/hint_landmark"
+                android:paddingStart="@dimen/_12dp"
+                android:paddingTop="@dimen/_16dp"
+                android:paddingEnd="@dimen/_12dp"
+                android:paddingBottom="@dimen/_16dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:enabled="false"
+                android:focusable="false"
+                android:textAppearance="@style/edit_text_appearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etPin"
+                app:layout_constraintTop_toTopOf="@+id/etPin" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSignup"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_43sdp"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                android:text="@string/txt_signup"
+                style="@style/login_button"
+                android:alpha="0.9"
+                android:enabled="false"
+                android:focusable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPin" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

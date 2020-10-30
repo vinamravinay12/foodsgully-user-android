@@ -61,10 +61,10 @@ class LoginViewModel : ViewModel() {
         return validateEmail(context) && validatePassword(context)
     }
 
-    fun loginUser(loginData: LoginData,context: Context) : MutableLiveData<GenericResponse>? {
+    fun loginUser(context: Context) : MutableLiveData<GenericResponse>? {
 
         if(!validateLogin(context)) return null
-        return LoginRepository<User>(loginData,context).getResponse()
+        return LoginRepository<User>(LoginData(userName = email.value ?: "", password = password.value ?: ""),context).getResponse()
     }
 
 }
