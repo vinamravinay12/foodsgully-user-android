@@ -1,5 +1,6 @@
 package com.foodsgully.foodsgullyuser.models.responsemodels
 
+import android.graphics.Bitmap
 import android.os.Parcel
 import android.os.Parcelable
 
@@ -19,26 +20,28 @@ data class Product(
     val salePrice: String? = null,
     val image: String? = null,
     val availability: Boolean = false,
-    val imageUrl: String? = null
+    val imageUrl: String? = null,
+    var categoryImageBitmap: Bitmap? = null
 
 ) : Parcelable {
     constructor(source: Parcel) : this(
-        source.readString(),
-        source.readInt(),
-        source.readInt(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readInt(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        1 == source.readInt(),
-        source.readString()
+    source.readString(),
+    source.readInt(),
+    source.readInt(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readInt(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    1 == source.readInt(),
+    source.readString(),
+    source.readParcelable<Bitmap>(Bitmap::class.java.classLoader)
     )
 
     override fun describeContents() = 0
@@ -60,6 +63,7 @@ data class Product(
         writeString(image)
         writeInt((if (availability) 1 else 0))
         writeString(imageUrl)
+        writeParcelable(categoryImageBitmap, 0)
     }
 
     companion object {

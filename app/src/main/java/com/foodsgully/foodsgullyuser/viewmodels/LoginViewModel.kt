@@ -1,14 +1,14 @@
 package com.foodsgully.foodsgullyuser.viewmodels
 
 import android.content.Context
+import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.foodsgully.foodsgullyuser.models.APIError
+import com.foodsgully.foodsgullyuser.R
 import com.foodsgully.foodsgullyuser.models.GenericResponse
 import com.foodsgully.foodsgullyuser.models.postdatamodels.LoginData
 import com.foodsgully.foodsgullyuser.models.responsemodels.User
 import com.foodsgully.foodsgullyuser.viewmodels.repositories.LoginRepository
-import com.niro.foodsgullyuser.R
 import com.wajahatkarim3.easyvalidation.core.view_ktx.validEmail
 
 
@@ -32,10 +32,15 @@ class LoginViewModel : ViewModel() {
                 emailError.value = context.getString(R.string.error_empty_email)
                 false
             }
-            email.value?.validEmail() == false -> {
+            email.value?.isDigitsOnly() == true && email.value?.length != 10 -> {
+                emailError.value = context.getString(R.string.error_valid_phone)
+                false
+            }
+            email.value?.isDigitsOnly() == false && email.value?.validEmail() == false -> {
                 emailError.value = context.getString(R.string.invalid_email)
                 false
             }
+
             else -> {
                 emailError.value = ""
                 true

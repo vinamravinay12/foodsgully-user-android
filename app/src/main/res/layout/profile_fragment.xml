@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="isEditMode"
+            type="Boolean" />
+
+        <variable
+            name="profileVM"
+            type="com.foodsgully.foodsgullyuser.viewmodels.ProfileViewModel" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/parent_address_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.AddressFragment">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:alpha="0.87"
+                android:background="@color/colorPrimary"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_24sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_action_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="52dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/title_my_account"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <FrameLayout
+                    android:id="@+id/layout_profile_image"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:padding="@dimen/_10dp"
+                    android:elevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivProfileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_person_gray"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="@dimen/_4dp"
+                    app:civ_circle_background_color="@color/colorTransparent" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvFullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@{profileVM.fullName}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_profile_image" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnEditProfile"
+                    style="@style/edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_18sdp"
+                    android:drawableStart="@drawable/ic_edit_24_white"
+                    android:drawablePadding="@dimen/_17sdp"
+                    android:backgroundTint="@color/colorWhite"
+                    android:textColor="@color/colorPrimary"
+                    android:drawableTint="@color/colorPrimary"
+                    android:elevation="0dp"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_23sdp"
+                    android:paddingEnd="@dimen/_20sdp"
+                    android:text="@string/btn_txt_edit"
+                    android:visibility="@{isEditMode ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSubmit"
+                    style="@style/edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_18sdp"
+                    android:drawableStart="@drawable/ic_edit_24_white"
+                    android:drawablePadding="@dimen/_12dp"
+                    android:backgroundTint="@color/colorWhite"
+                    android:textColor="@color/colorPrimary"
+                    android:drawableTint="@color/colorPrimary"
+                    android:elevation="0dp"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_16sdp"
+                    android:paddingEnd="@dimen/_14sdp"
+                    android:text="@string/btn_txt_submit"
+                    android:visibility="@{isEditMode ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnClickPhoto"
+                    style="@style/edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_24sdp"
+                    android:layout_marginBottom="@dimen/_18sdp"
+                    android:drawableStart="@drawable/ic_camera_24"
+                    android:drawablePadding="@dimen/_17sdp"
+                    android:elevation="0dp"
+                    android:visibility="@{isEditMode ? View.VISIBLE : View.GONE}"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_23sdp"
+                    android:paddingEnd="@dimen/_20sdp"
+                    android:text="@string/btn_photo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_header"
+                tools:context="com.foodsgully.foodsgullyuser.fragments.SignUpFragment">
+
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_24sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:text="@string/lbl_full_name"
+                    android:textAppearance="@style/profile_label_appearance"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etFullName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_40sdp"
+                    android:paddingEnd="@dimen/_4dp"
+                    android:enabled="@{isEditMode}"
+                    android:text="@={profileVM.fullName}"
+                    android:inputType="textPersonName"
+                    android:textAppearance="@style/profile_edittext_value_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    tools:text="Name" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="@string/lbl_email"
+                    android:textAppearance="@style/profile_label_appearance"
+                    app:layout_constraintStart_toStartOf="@+id/etFullName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvErrorName" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_40sdp"
+                    android:inputType="textEmailAddress"
+                    android:paddingEnd="@dimen/_4dp"
+                    android:text="@{profileVM.email}"
+                    android:enabled="false"
+                    android:textAppearance="@style/profile_edittext_value_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvEmail"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="@string/lbl_phone_number"
+                    android:textAppearance="@style/profile_label_appearance"
+                    app:layout_constraintStart_toStartOf="@+id/etEmail"
+                    app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_40sdp"
+                    android:inputType="phone"
+                    android:paddingEnd="@dimen/_4dp"
+                    android:enabled="@{isEditMode}"
+                    android:text="@={profileVM.phoneNumber}"
+                    android:textAppearance="@style/profile_edittext_value_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvPhone"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
+                <TextView
+                    android:id="@+id/tvErrorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_24sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    tools:text="TextView"
+                    android:text="@{profileVM.fullNameError}"
+                    android:textAppearance="@style/input_text_error"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etFullName" />
+
+                <TextView
+                    android:id="@+id/tvErrorPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_24sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    tools:text="TextView"
+                    android:text="@{profileVM.phoneNumberError}"
+                    android:textAppearance="@style/input_text_error"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,5 +1,6 @@
 package com.foodsgully.foodsgullyuser.models.responsemodels
 
+import android.graphics.Bitmap
 import android.os.Parcel
 import android.os.Parcelable
 
@@ -8,15 +9,17 @@ data class Category(
     val categoryName: String? = null,
     val categoryImage: String? = "",
     val categoryUrl: String? = "",
-    val categoryColor: String? = ""
+    val categoryColor: String? = "",
+    var categoryImageBitmap: Bitmap? = null
 
 ) : Parcelable {
     constructor(source: Parcel) : this(
-        source.readInt(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString()
+    source.readInt(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readParcelable<Bitmap>(Bitmap::class.java.classLoader)
     )
 
     override fun describeContents() = 0
@@ -27,6 +30,7 @@ data class Category(
         writeString(categoryImage)
         writeString(categoryUrl)
         writeString(categoryColor)
+        writeParcelable(categoryImageBitmap, 0)
     }
 
     companion object {

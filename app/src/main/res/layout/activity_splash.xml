@@ -6,4 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.foodsgully.foodsgullyuser.activities.SplashActivity">
 
+    <ImageView
+        android:id="@+id/ivSplashLogo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:translationX="-400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/foodsgully_splash_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

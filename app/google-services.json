@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "239664029274",
+    "firebase_url": "https://foodsgully.firebaseio.com",
+    "project_id": "foodsgully",
+    "storage_bucket": "foodsgully.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239664029274:android:2d50056e293b1caa718263",
+        "android_client_info": {
+          "package_name": "com.foodsgully.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239664029274-nhind8cumfbgme7fouqkm9f3ldgm9t3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJUcRPdwNuVyLs4aM0-k9przigwvu89WY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239664029274-nhind8cumfbgme7fouqkm9f3ldgm9t3i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "239664029274-72d7q6v6iiblf3j0dog365ng6f5dg80b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.foodsgully.user"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239664029274:android:22375fa733fcb6b5718263",
+        "android_client_info": {
+          "package_name": "com.foodsgully.foodsgullyuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239664029274-nhind8cumfbgme7fouqkm9f3ldgm9t3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJUcRPdwNuVyLs4aM0-k9przigwvu89WY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239664029274-nhind8cumfbgme7fouqkm9f3ldgm9t3i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "239664029274-72d7q6v6iiblf3j0dog365ng6f5dg80b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.foodsgully.user"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

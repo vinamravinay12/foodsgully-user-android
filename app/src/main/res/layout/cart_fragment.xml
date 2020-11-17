@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="cartVM"
+            type="com.foodsgully.foodsgullyuser.viewmodels.CartViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.foodsgully.foodsgullyuser.fragments.CartFragment">
+
+
+    <ImageButton
+        android:id="@+id/ibBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_23sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:src="@drawable/ic_action_back"
+        android:tint="@color/colorBlack"
+        android:background="@color/colorTransparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCartHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_39sdp"
+        android:text="@string/title_cart"
+        tools:text="Cart (2 Items)"
+        style="@style/LoginHeaderText"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintStart_toEndOf="@+id/ibBack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCartItems"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_9sdp"
+        android:layout_marginTop="@dimen/_29sdp"
+        android:layout_marginEnd="@dimen/_9sdp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/background_cart_items"
+        android:paddingTop="@dimen/_5dp"
+        android:paddingBottom="@dimen/_5dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutPriceTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibBack" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutPriceTotal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_89sdp"
+        android:layout_marginStart="@dimen/_9sdp"
+        android:layout_marginEnd="@dimen/_9sdp"
+        android:layout_marginBottom="@dimen/_9sdp"
+        android:background="@drawable/background_cart_items"
+        android:backgroundTint="#FFEFEF"
+        app:layout_constraintBottom_toTopOf="@+id/btnCheckout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvLblItemTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:text="@string/lbl_item_total"
+            android:textAppearance="@style/txt_item_total"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvItemTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{@string/rupee_symbol + " " + cartVM.totalCost }'
+            android:textAppearance="@style/txt_item_total"
+            app:layout_constraintEnd_toEndOf="@+id/tvTaxes"
+            app:layout_constraintTop_toTopOf="@+id/tvLblItemTotal"
+            tools:text="200" />
+
+        <TextView
+            android:id="@+id/tvLblTaxes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/lbl_taxes"
+            android:textAppearance="@style/txt_item_total"
+            app:layout_constraintStart_toStartOf="@+id/tvLblItemTotal"
+            app:layout_constraintTop_toBottomOf="@+id/tvLblItemTotal" />
+
+        <TextView
+            android:id="@+id/tvTaxes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.00"
+            android:textAppearance="@style/txt_item_total"
+            app:layout_constraintEnd_toEndOf="@+id/tvGrandTotal"
+            app:layout_constraintTop_toTopOf="@+id/tvLblTaxes" />
+
+        <TextView
+            android:id="@+id/tvLblGrandTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:text="@string/lbl_grand_total"
+            android:textAppearance="@style/txt_grand_total"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLblTaxes" />
+
+        <TextView
+            android:id="@+id/tvGrandTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:text='@{@string/rupee_symbol + " " + cartVM.finalCost }'
+            android:textAppearance="@style/txt_grand_total"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvLblGrandTotal"
+            tools:text="200.00" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCheckout"
+        style="@style/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:alpha="0.87"
+        android:text="@string/btn_proceed_checkout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

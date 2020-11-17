@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="orderDetails"
+            type="com.foodsgully.foodsgullyuser.models.responsemodels.OrderDetails" />
+
+        <variable
+            name="itemClickListener"
+            type="com.foodsgully.foodsgullyuser.utils.listeners.ItemClickListener" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_5sdp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_9sdp"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:layout_marginEnd="@dimen/_9sdp"
+            android:layout_marginBottom="@dimen/_9sdp"
+            app:cardCornerRadius="@dimen/_5dp"
+            app:cardElevation="@dimen/_4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_9sdp">
+
+                <TextView
+                    android:id="@+id/tvOrderNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text='@{orderDetails.getOrderNumberToDisplay()}'
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="TextView" />
+
+                <TextView
+                    android:id="@+id/tvTotalItems"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:textAppearance="@style/product_info_text"
+                    app:layout_constraintStart_toStartOf="@+id/tvOrderNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/tvOrderNumber"
+                    tools:text="7 items" />
+
+                <TextView
+                    android:id="@+id/tvDeliveryTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:ems="14"
+                    android:text="@{orderDetails.deliveryTime}"
+                    android:textAppearance="@style/product_info_text"
+                    app:layout_constraintStart_toStartOf="@+id/tvTotalItems"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTotalItems"
+                    tools:text="TextView" />
+
+                <TextView
+                    android:id="@+id/tvGrandTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:text="@string/txt_order_total"
+                    android:textAppearance="@style/product_info_text"
+                    app:layout_constraintBottom_toTopOf="@+id/tvPaymentStatus"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPaymentStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_status"
+                    android:textAppearance="@style/product_info_text"
+                    app:layout_constraintEnd_toEndOf="@+id/tvGrandTotal"
+                    app:layout_constraintTop_toTopOf="@+id/tvDeliveryTime" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

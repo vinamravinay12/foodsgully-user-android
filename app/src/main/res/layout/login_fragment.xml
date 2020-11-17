@@ -53,7 +53,7 @@
             android:paddingTop="@dimen/_16dp"
             android:paddingEnd="@dimen/_28dp"
             android:paddingBottom="@dimen/_16dp"
-            android:hint="@string/enter_email"
+            android:hint="@string/enter_email_phone_number"
             android:text="@={loginVM.email}"
             android:textAppearance="@style/edit_text_appearance"
             app:layout_constraintEnd_toEndOf="parent"

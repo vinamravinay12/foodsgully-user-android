@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="cartItem"
+            type="com.foodsgully.foodsgullyuser.models.CartItem" />
+        <variable
+            name="updateProductListener"
+            type="com.foodsgully.foodsgullyuser.utils.listeners.UpdateProductInCartListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/_5dp">
+
+            <ImageView
+                android:id="@+id/ivProductImage"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/product_sample_image" />
+
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="34dp"
+                android:ems="12"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{cartItem.selectedProduct.description}"
+                android:textAppearance="@style/product_info_text"
+                app:layout_constraintStart_toEndOf="@+id/ivProductImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:text='@{cartItem.selectedProduct.quantity + " " + cartItem.selectedProduct.quantityType }'
+                android:textAppearance="@style/product_info_text"
+                app:layout_constraintStart_toEndOf="@+id/ivProductImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvLblPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text='@{@string/rupee_symbol + "" + cartItem.selectedProduct.salePrice}'
+                android:textAppearance="@style/product_info_text"
+                app:layout_constraintStart_toEndOf="@+id/ivProductImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvQuantity"
+                tools:text="TextView" />
+
+            <LinearLayout
+                android:id="@+id/layout_add_quantity"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_19sdp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="26dp"
+                android:background="@drawable/background_add_quantity"
+                android:orientation="horizontal"
+                android:paddingStart="4dp"
+                android:paddingTop="@dimen/_2dp"
+                android:paddingEnd="@dimen/_4dp"
+
+                android:paddingBottom="@dimen/_2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnRemove">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRemoveQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparent"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    android:id="@+id/tvProductQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:alpha="0.9"
+                    android:background="#D62E2E"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text='@{"" + cartItem.totalQuantity}'
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_10ssp"
+                    tools:text="1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparent"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@color/colorBlack" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnRemove"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@color/colorTransparent"
+                android:drawableStart="@drawable/ic_delete_olive_24"
+                android:elevation="0dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:text="@string/btn_remove"
+                android:textAllCaps="false"
+                android:textColor="@color/input_error_color"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewSeparator"
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="30dp"
+                android:background="@color/colorBorderGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivProductImage" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

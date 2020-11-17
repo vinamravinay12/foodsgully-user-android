@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.foodsgully.foodsgullyuser.fragments.ProductListFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/layout_category_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_185sdp"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fitsSystemWindows="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="#50B5F8">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/product_collapsing_header"
+                app:expandedTitleMarginEnd="@dimen/_31sdp"
+                app:expandedTitleMarginStart="@dimen/_31sdp"
+                app:scrimAnimationDuration="100"
+                app:contentScrim="#50B5F8"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.7"
+                    android:layout_marginTop="@dimen/_60sdp">
+
+                    <carbon.widget.ImageView
+                        android:id="@+id/ivCategoryImage"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/carousel_image_1"
+                        app:carbon_cornerRadius="@dimen/_5dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvCategoryName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:layout_toEndOf="@id/ivCategoryImage"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_32sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintStart_toEndOf="@+id/ivCategoryImage"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/tvTotalItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10ssp"
+                        android:layout_toEndOf="@id/ivCategoryImage"
+                        android:layout_below="@+id/tvCategoryName"
+                        app:layout_constraintStart_toStartOf="@+id/tvCategoryName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCategoryName"
+                        tools:text="TextView" />
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/search_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginTop="0dp"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_23sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_action_back"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_search"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_14sdp"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
+                        android:background="@drawable/search_box"
+                        android:backgroundTint="#52FFFFFF"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/iv_back"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/search_products"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.8"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/roboto"
+                            android:hint="@string/hint_search_product"
+                            android:paddingStart="@dimen/_21sdp"
+                            android:paddingTop="@dimen/_8sdp"
+                            android:paddingEnd="@dimen/_21sdp"
+                            android:paddingBottom="@dimen/_8sdp"
+                            android:textSize="@dimen/_9ssp"
+                            app:iconifiedByDefault="false"
+                            app:queryBackground="@color/colorTransparent"
+                            app:queryHint="@string/hint_search_product" />
+
+                    </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchProductsResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_54sdp"
+            android:layout_marginTop="@dimen/_56sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:elevation="@dimen/_1dp"
+            android:divider="@color/colorBorderGrey"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingTop="@dimen/_6sdp"
+            android:dividerHeight="1dp"
+            android:visibility="gone"
+            android:background="@drawable/background_search_results"
+            android:paddingStart="@dimen/_6sdp"
+            android:paddingEnd="@dimen/_6sdp"
+            android:layout_marginBottom="@dimen/_6sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintTop_toBottomOf="@+id/layout_category_header" />
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

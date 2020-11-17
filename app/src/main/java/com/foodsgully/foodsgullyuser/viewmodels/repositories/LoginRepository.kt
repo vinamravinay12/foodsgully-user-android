@@ -3,6 +3,7 @@ package com.foodsgully.foodsgullyuser.viewmodels.repositories
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.foodsgully.foodsgullyuser.database.SharedPreferenceManager
 import com.foodsgully.foodsgullyuser.models.APIError
 import com.foodsgully.foodsgullyuser.models.APILoader
 import com.foodsgully.foodsgullyuser.models.GenericResponse
@@ -12,7 +13,6 @@ import com.foodsgully.foodsgullyuser.models.responsemodels.GenericAPIResponse
 import com.foodsgully.foodsgullyuser.models.responsemodels.User
 import com.foodsgully.foodsgullyuser.utils.FoodsGullyConstants
 import com.google.gson.Gson
-import com.niro.niroapp.database.SharedPreferenceManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,7 +29,6 @@ class LoginRepository<T>(private val loginData : LoginData, private val context 
         getAPIInterface()?.login(loginData)?.enqueue(object : Callback<GenericAPIResponse<User>> {
 
             override fun onFailure(call: Call<GenericAPIResponse<User>>, t: Throwable) {
-                Log.e("TAGSS","failure " + t.message)
                val response = APIError(404,t.localizedMessage)
                 responseData.value = response
             }
@@ -55,7 +54,7 @@ class LoginRepository<T>(private val loginData : LoginData, private val context 
 
                 storeData(response.body()?.token , FoodsGullyConstants.USER_TOKEN,context = context)
                 storeData(response.body()?.responseData,FoodsGullyConstants.USER_DATA,context)
-                val success = Success<T>(response.body() as? T)
+                val success = Success<T>(response.body()?.responseData as? T)
                 responseData.value = success
             }
 

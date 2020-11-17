@@ -1,5 +1,6 @@
 package com.foodsgully.foodsgullyuser.models.responsemodels
 
+import android.graphics.Bitmap
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
@@ -12,29 +13,36 @@ data class User(
     val email: String? = null,
 
     @SerializedName("fullName")
-    val fullName: String? = null,
+    var fullName: String? = null,
 
     @SerializedName("phoneNumber")
-    val phoneNumber: String? = null,
+    var phoneNumber: String? = null,
 
     @SerializedName("homeAddress")
-    val homeAddress: HomeAddress? = null,
+    var homeAddress: HomeAddress? = null,
 
     @SerializedName("totalOrders")
     val totalOrders: Int = 0,
 
     @SerializedName("totalOrderAmount")
-    val totalOrderAmount: Float = 0f
+    val totalOrderAmount: Float = 0f,
+
+    @SerializedName("imageUrl")
+    var imageUrl: String? = null,
+
+    var image: Bitmap? = null
 
 ) : Parcelable {
     constructor(source: Parcel) : this(
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readParcelable<HomeAddress>(HomeAddress::class.java.classLoader),
-        source.readInt(),
-        source.readFloat()
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readParcelable<HomeAddress>(HomeAddress::class.java.classLoader),
+    source.readInt(),
+    source.readFloat(),
+    source.readString(),
+    source.readParcelable<Bitmap>(Bitmap::class.java.classLoader)
     )
 
     override fun describeContents() = 0
@@ -47,6 +55,8 @@ data class User(
         writeParcelable(homeAddress, 0)
         writeInt(totalOrders)
         writeFloat(totalOrderAmount)
+        writeString(imageUrl)
+        writeParcelable(image, 0)
     }
 
     companion object {

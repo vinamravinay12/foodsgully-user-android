@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="homeAddress"
+            type="com.foodsgully.foodsgullyuser.models.responsemodels.HomeAddress" />
+
+        <variable
+            name="isEditMode"
+            type="Boolean" />
+    </data>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/parent_address_layout"
+            tools:context=".fragments.AddressFragment">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:alpha="0.87"
+                android:background="@color/colorPrimary"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_24sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_action_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="52dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/title_location"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivLocation"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_nav_location"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                    app:tint="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/tvCityName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@{homeAddress.cityName == null ? @string/no_location : homeAddress.cityName}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_19ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivLocation" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnEditAddress"
+                    style="@style/edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_18sdp"
+                    android:drawableStart="@drawable/ic_edit_24_white"
+                    android:drawablePadding="@dimen/_17sdp"
+                    android:elevation="0dp"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_23sdp"
+                    android:paddingEnd="@dimen/_20sdp"
+                    android:text="@string/btn_txt_edit"
+                    android:visibility="@{isEditMode ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_header"
+                tools:context="com.foodsgully.foodsgullyuser.fragments.SignUpFragment">
+
+
+                <TextView
+                    android:id="@+id/tvCurrentLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:drawableStart="@drawable/ic_location_red_24"
+                    android:drawablePadding="@dimen/_9sdp"
+                    android:gravity="center"
+                    android:enabled="@{isEditMode}"
+                    android:alpha="@{isEditMode ? 1.0f: 0.6f}"
+                    android:text="@string/current_location"
+                    android:textAppearance="@style/txtLink"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/etHouseNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/shape_edit_text"
+                    android:ems="8"
+                    android:hint="@string/hint_house_no"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/_28dp"
+                    android:paddingTop="@dimen/_16dp"
+                    android:paddingEnd="@dimen/_28dp"
+                    android:paddingBottom="@dimen/_16dp"
+                    android:enabled="@{isEditMode}"
+                    android:text="@={homeAddress.houseNumber}"
+                    android:textAppearance="@style/edit_text_appearance"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHouseNo" />
+
+                <TextView
+                    android:id="@+id/tvFloorNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_floor"
+                    android:textAppearance="@style/lbl_text_style"
+                    app:layout_constraintStart_toStartOf="@+id/etFloorNumber"
+                    app:layout_constraintTop_toTopOf="@+id/tvHouseNo" />
+
+                <TextView
+                    android:id="@+id/tvHouseNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/lbl_house_no"
+                    android:textAppearance="@style/lbl_text_style"
+                    app:layout_constraintStart_toStartOf="@+id/etHouseNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCurrentLocation" />
+
+                <EditText
+                    android:id="@+id/etFloorNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_32sdp"
+                    android:background="@drawable/shape_edit_text"
+                    android:hint="@string/hint_floor"
+                    android:paddingStart="@dimen/_12dp"
+                    android:paddingTop="@dimen/_16dp"
+                    android:paddingEnd="@dimen/_12dp"
+                    android:paddingBottom="@dimen/_16dp"
+                    android:enabled="@{isEditMode}"
+                    android:text="@={homeAddress.floorNumber}"
+                    android:textAppearance="@style/edit_text_appearance"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/etHouseNumber"
+                    app:layout_constraintTop_toTopOf="@+id/etHouseNumber" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="@string/lbl_address"
+                    android:textAppearance="@style/lbl_text_style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etHouseNumber" />
+
+                <EditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_32sdp"
+                    android:background="@drawable/shape_edit_text"
+                    android:clickable="true"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:hint="@string/hint_address"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/_12dp"
+                    android:paddingTop="@dimen/_16dp"
+                    android:paddingEnd="@dimen/_12dp"
+                    android:paddingBottom="@dimen/_16dp"
+                    android:enabled="@{isEditMode}"
+                    android:text="@{homeAddress.streetAddress}"
+                    android:textAppearance="@style/edit_text_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+                <TextView
+                    android:id="@+id/tvPin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="@string/lbl_pin"
+                    android:textAppearance="@style/lbl_text_style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+
+                <EditText
+                    android:id="@+id/etPin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/shape_edit_text"
+                    android:ems="6"
+                    android:focusable="true"
+                    android:hint="@string/hint_pin"
+                    android:paddingStart="@dimen/_12dp"
+                    android:paddingTop="@dimen/_16dp"
+                    android:paddingEnd="@dimen/_12dp"
+                    android:paddingBottom="@dimen/_16dp"
+                    android:enabled="@{isEditMode}"
+                    android:text="@{homeAddress.zip}"
+                    android:textAppearance="@style/edit_text_appearance"
+                    app:layout_constraintStart_toStartOf="@+id/tvPin"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPin" />
+
+                <TextView
+                    android:id="@+id/tvLandmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_landmark"
+                    android:textAppearance="@style/lbl_text_style"
+                    app:layout_constraintStart_toStartOf="@+id/etLandmark"
+                    app:layout_constraintTop_toTopOf="@+id/tvPin" />
+
+                <EditText
+                    android:id="@+id/etLandmark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_32sdp"
+                    android:background="@drawable/shape_edit_text"
+                    android:ellipsize="end"
+                    android:focusable="true"
+                    android:hint="@string/hint_landmark"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/_12dp"
+                    android:paddingTop="@dimen/_16dp"
+                    android:paddingEnd="@dimen/_12dp"
+                    android:paddingBottom="@dimen/_16dp"
+                    android:enabled="@{isEditMode}"
+                    android:text="@={homeAddress.landmark}"
+                    android:textAppearance="@style/edit_text_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/etPin"
+                    app:layout_constraintTop_toTopOf="@+id/etPin" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSubmit"
+                    style="@style/login_button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_43sdp"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_32sdp"
+                    android:alpha="0.9"
+                    android:visibility="@{isEditMode ? View.VISIBLE : View.GONE}"
+                    android:text="@string/btn_txt_submit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etPin" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

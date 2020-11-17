@@ -1,76 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.foodsgully.foodsgullyuser.activities.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        tools:context="com.foodsgully.foodsgullyuser.activities.MainActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorWhite"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorWhite"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
 
-                <ImageView
-                    android:id="@+id/ivAppLogo"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/foodsgully_splash_logo" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <ru.nikartm.support.ImageBadgeView
-                    android:id="@+id/iv_cart"
-                    android:layout_width="@dimen/_29sdp"
-                    android:layout_height="@dimen/_29sdp"
-                    android:layout_marginEnd="28dp"
-                    android:src="@drawable/ic_action_cart"
-                    android:background="@drawable/cart_icon_background"
-                    android:scaleType="centerInside"
-                    app:ibv_badgePosition="top_right"
-                    app:ibv_badgeColor="#A34C5A23"
-                    app:ibv_badgeTextColor="@color/btn_login_color"
-                    app:ibv_fixedBadgeRadius="@dimen/_7sdp"
-                    app:ibv_badgeTextStyle="bold"
-                    app:ibv_badgeValue="10"
-                    app:ibv_badgeTextSize="@dimen/_6ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:id="@+id/ivAppLogo"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.419"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/foodsgully_splash_logo" />
+
+                    <ru.nikartm.support.ImageBadgeView
+                        android:id="@+id/iv_cart"
+                        android:layout_width="@dimen/_29sdp"
+                        android:layout_height="@dimen/_29sdp"
+                        android:layout_marginEnd="@dimen/_14sdp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_cart_with_circle"
+                        app:ibv_badgeColor="#A34C5A23"
+                        app:ibv_badgePosition="top_right"
+                        app:ibv_badgeTextColor="@color/btn_login_color"
+                        app:ibv_badgeTextSize="@dimen/_6ssp"
+                        app:ibv_badgeTextStyle="bold"
+                        app:ibv_fixedBadgeRadius="@dimen/_7sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
+            </androidx.appcompat.widget.Toolbar>
 
 
-    </com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+        <include layout="@layout/content_main"
+            android:id="@+id/contentMain"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

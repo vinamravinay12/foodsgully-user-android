@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@+id/nav_login">
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.foodsgully.foodsgullyuser.fragments.LoginFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/login_fragment" />
+
+    <fragment
+        android:id="@+id/nav_signup"
+        android:name="com.foodsgully.foodsgullyuser.fragments.SignUpFragment"
+        android:label="@string/menu_signup"
+        tools:layout="@layout/sign_up_fragment" />
+
+    <fragment
+        android:id="@+id/nav_signup_info"
+        android:name="com.foodsgully.foodsgullyuser.fragments.SignupInfoFragment"
+        android:label="@string/menu_signup_info"
+        tools:layout="@layout/fragment_signup_info" />
+
+    <fragment
+        android:id="@+id/nav_forgot_password"
+        android:name="com.foodsgully.foodsgullyuser.fragments.ResetPasswordFragment"
+        android:label="@string/menu_reset_password"
+        tools:layout="@layout/reset_password_fragment" />
+
+
+</navigation>

@@ -1,0 +1,63 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.foodsgully.foodsgullyuser.fragments.SignupInfoFragment">
+
+
+        <com.synnapps.carouselview.CarouselView
+            android:id="@+id/img_carousel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:layout_marginBottom="@dimen/_31sdp"
+            android:padding="@dimen/_5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/signup_info_3"
+            app:indicatorMarginVertical="@dimen/_8sdp"
+            app:animateOnBoundary="false"
+            app:snap="true"
+            app:pageTransformInterval="800"
+            app:fillColor="#777777"
+            app:indicatorGravity="center_horizontal|bottom"
+            app:layout_constraintBottom_toTopOf="@+id/btnSkip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:pageTransformer="slide_over"
+            app:radius="@dimen/_5sdp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:background="@color/colorTransparent"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/btn_skip"
+            android:textAllCaps="false"
+            android:textColor="#656565"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNext"
+            style="@style/login_button"
+            android:layout_width="@dimen/_83sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:alpha="0.87"
+            android:text="@string/btn_txt_next"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnSkip" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

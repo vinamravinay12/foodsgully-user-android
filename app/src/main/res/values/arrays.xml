@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_date_spinner">
+        <item>Today</item>
+        <item>Tomorrow</item>
+        <item>Custom Date</item>
+    </string-array>
+</resources>

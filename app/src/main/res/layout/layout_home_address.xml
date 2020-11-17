@@ -5,18 +5,19 @@
 
     <data>
         <variable
-            name="loginVM"
-            type="com.foodsgully.foodsgullyuser.viewmodels.LoginViewModel" />
+            name="signUpVM"
+            type="com.foodsgully.foodsgullyuser.viewmodels.SignUpViewModel" />
     </data>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/parent_address_layout"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="com.foodsgully.foodsgullyuser.fragments.LoginFragment">
+            tools:context="com.foodsgully.foodsgullyuser.fragments.SignUpFragment">
 
 
             <ImageView
@@ -70,6 +71,7 @@
                 android:textAppearance="@style/edit_text_appearance"
                 android:hint="@string/hint_house_no"
                 android:inputType="text"
+                android:text="@={signUpVM.houseNumber}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHouseNo" />
 
@@ -102,6 +104,7 @@
                 android:paddingTop="@dimen/_16dp"
                 android:paddingEnd="@dimen/_12dp"
                 android:paddingBottom="@dimen/_16dp"
+                android:text="@={signUpVM.floorNumber}"
                 android:textAppearance="@style/edit_text_appearance"
                 android:background="@drawable/shape_edit_text"
                 android:hint="@string/hint_floor"
@@ -130,6 +133,7 @@
                 android:layout_marginEnd="@dimen/_32sdp"
                 android:background="@drawable/shape_edit_text"
                 android:ellipsize="end"
+                android:text="@{signUpVM.streetAddress}"
                 android:hint="@string/hint_address"
                 android:lines="1"
                 android:maxLines="1"
@@ -170,6 +174,7 @@
                 android:focusable="false"
                 android:textAppearance="@style/edit_text_appearance"
                 android:hint="@string/hint_pin"
+                android:text="@{signUpVM.zip}"
                 app:layout_constraintStart_toStartOf="@+id/tvPin"
                 app:layout_constraintTop_toBottomOf="@+id/tvPin" />
 
@@ -196,15 +201,15 @@
                 android:paddingBottom="@dimen/_16dp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:enabled="false"
-                android:focusable="false"
+
+                android:text="@={signUpVM.landmark}"
                 android:textAppearance="@style/edit_text_appearance"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/etPin"
                 app:layout_constraintTop_toTopOf="@+id/etPin" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnSignup"
+                android:id="@+id/btnSignUp"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_43sdp"
                 android:layout_marginStart="@dimen/_32sdp"
@@ -213,8 +218,8 @@
                 android:text="@string/txt_signup"
                 style="@style/login_button"
                 android:alpha="0.9"
-                android:enabled="false"
-                android:focusable="false"
+                android:enabled="true"
+                android:focusable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etPin" />

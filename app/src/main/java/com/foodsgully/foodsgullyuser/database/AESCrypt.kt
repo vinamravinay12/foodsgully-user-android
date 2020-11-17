@@ -1,4 +1,4 @@
-package com.niro.niroapp.database
+package com.foodsgully.foodsgullyuser.database
 
 import android.util.Base64
 import java.security.NoSuchAlgorithmException

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="product"
+            type="com.foodsgully.foodsgullyuser.models.responsemodels.Product" />
+        <variable
+            name="updateProductListener"
+            type="com.foodsgully.foodsgullyuser.utils.listeners.UpdateProductInCartListener" />
+
+        <variable
+            name="itemClickListener"
+            type="com.foodsgully.foodsgullyuser.utils.listeners.ItemClickListener" />
+    </data>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/_5dp">
+
+            <ImageView
+                android:id="@+id/ivProductImage"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/product_sample_image" />
+
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_27sdp"
+                android:ems="10"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:text="@{product.description}"
+                android:textAppearance="@style/product_info_text"
+                app:layout_constraintStart_toEndOf="@+id/ivProductImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:text='@{product.quantity + " " + product.quantityType }'
+                android:textAppearance="@style/product_info_text"
+                app:layout_constraintStart_toEndOf="@+id/ivProductImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/tvLblPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text='@{@string/rupee_symbol + "" + product.salePrice}'
+                android:textAppearance="@style/product_info_text"
+                app:layout_constraintStart_toEndOf="@+id/ivProductImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvQuantity"
+                tools:text="TextView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_19sdp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="26dp"
+                android:alpha="0.9"
+                android:background="@drawable/add_product_button"
+                android:fontFamily="@font/roboto"
+                android:text="@string/btn_txt_add"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_9ssp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_add_quantity"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_19sdp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="26dp"
+                android:background="@drawable/background_add_quantity"
+                android:orientation="horizontal"
+                android:paddingStart="4dp"
+                android:paddingTop="@dimen/_2dp"
+                android:paddingEnd="@dimen/_4dp"
+                android:paddingBottom="@dimen/_2dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRemoveQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparent"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    android:id="@+id/tvProductQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:alpha="0.9"
+                    android:background="#D62E2E"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_10ssp"
+                    tools:text="1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorTransparent"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@color/colorBlack" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

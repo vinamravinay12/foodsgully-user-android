@@ -6,41 +6,51 @@ import com.google.gson.annotations.SerializedName
 
 data class HomeAddress(
     @SerializedName("streetAddress")
-    val streetAddress: String? = null,
+    var streetAddress: String? = "",
 
-    @SerializedName("houseDetails")
-    val houseDetails: String? = null,
+    @SerializedName("houseNumber")
+    var houseNumber: String? = "",
+
+    @SerializedName("floorNumber")
+    var floorNumber: String? = "",
+
+    @SerializedName("landmark")
+    var landmark: String? = "",
 
     @SerializedName("city")
-    val city: String? = null,
+    var city: String? = "",
 
     @SerializedName("state")
-    val state: String? = null,
+    var state: String? = "",
 
     @SerializedName("zip")
-    val zip: String? = null,
+    var zip: String? = "",
 
     @SerializedName("latitude")
-    val latitude: Float? = null,
+    var latitude: Double? = null,
 
     @SerializedName("longitude")
-    val longitude: Float? = null
+    var longitude: Double? = null
 ) : Parcelable {
     constructor(source: Parcel) : this(
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readValue(Float::class.java.classLoader) as Float?,
-        source.readValue(Float::class.java.classLoader) as Float?
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readString(),
+    source.readValue(Float::class.java.classLoader) as Double?,
+    source.readValue(Float::class.java.classLoader) as Double?
     )
 
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
         writeString(streetAddress)
-        writeString(houseDetails)
+        writeString(houseNumber)
+        writeString(floorNumber)
+        writeString(landmark)
         writeString(city)
         writeString(state)
         writeString(zip)
@@ -55,4 +65,10 @@ data class HomeAddress(
             override fun newArray(size: Int): Array<HomeAddress?> = arrayOfNulls(size)
         }
     }
+
+    fun getCityName() : String {
+        return if(city.isNullOrEmpty()) "No Location" else city ?: ""
+    }
+
+
 }

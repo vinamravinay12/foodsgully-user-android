@@ -1,4 +1,4 @@
-package com.niro.niroapp.database
+package com.foodsgully.foodsgullyuser.database
 
 import android.content.Context
 import android.content.SharedPreferences

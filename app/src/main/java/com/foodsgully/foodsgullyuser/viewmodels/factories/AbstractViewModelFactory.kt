@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModelStoreOwner
 
 abstract class AbstractViewModelFactory<T : ViewModel>() : ViewModelProvider.Factory {
 
-    inline fun <reified T: ViewModel> getViewModel( args : Any?, owner: ViewModelStoreOwner) : T {
-        if(args == null) {
+    inline fun <reified T: ViewModel> getViewModel( hasArgs : Boolean, owner: ViewModelStoreOwner) : T {
+        if(!hasArgs) {
             return ViewModelProvider(owner).get(T::class.java)
         }
 

@@ -7,19 +7,55 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.foodsgully.foodsgullyuser.activities.ui.home.HomeFragment"
+        android:name="com.foodsgully.foodsgullyuser.fragments.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.foodsgully.foodsgullyuser.activities.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_products"
+        android:name="com.foodsgully.foodsgullyuser.fragments.ProductListFragment"
+        android:label="@string/menu_products"
+        tools:layout="@layout/product_list_fragment" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.foodsgully.foodsgullyuser.activities.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_cart"
+        android:name="com.foodsgully.foodsgullyuser.fragments.CartFragment"
+        android:label="@string/menu_cart"
+        tools:layout="@layout/cart_fragment" />
+
+    <fragment
+        android:id="@+id/nav_checkout"
+        android:name="com.foodsgully.foodsgullyuser.fragments.CheckoutFragment"
+        android:label="@string/menu_checkout"
+        tools:layout="@layout/checkout_fragment" />
+
+    <fragment
+        android:id="@+id/nav_address"
+        android:name="com.foodsgully.foodsgullyuser.fragments.AddressFragment"
+        android:label="@string/menu_address"
+        tools:layout="@layout/address_fragment" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.foodsgully.foodsgullyuser.fragments.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/profile_fragment" />
+
+    <fragment
+        android:id="@+id/nav_order_history"
+        android:name="com.foodsgully.foodsgullyuser.fragments.OrderHistoryFragment"
+        android:label="@string/menu_order_history"
+        tools:layout="@layout/order_history_fragment" />
+
+    <fragment
+        android:id="@+id/nav_order_details"
+        android:name="com.foodsgully.foodsgullyuser.fragments.OrderDetailsFragment"
+        android:label="@string/header_order_details"
+        tools:layout="@layout/order_details_fragment" />
+
+    <fragment
+        android:id="@+id/nav_product_details"
+        android:name="com.foodsgully.foodsgullyuser.fragments.ProductDetailsFragment"
+        android:label="@string/header_product_details"
+        tools:layout="@layout/product_details_fragment" />
 </navigation>

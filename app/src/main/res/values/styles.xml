@@ -1,10 +1,17 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">#DED62E2E</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/colorBlack</item>
     </style>
 
     <style name="LoginHeaderText">
@@ -35,6 +42,15 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="edit_button">
+        <item name="android:background">@drawable/button_edit</item>
+
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
     <style name="txtLink">
         <item name="android:textColor">@color/btn_login_color</item>
         <item name="android:textSize">@dimen/_11ssp</item>
@@ -58,4 +74,59 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="product_info_text">
+        <item name="android:textSize">@dimen/_9ssp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="txt_item_total">
+        <item name="android:textSize">@dimen/_11ssp</item>
+        <item name="android:textColor">#686868</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="txt_grand_total">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="lbl_header_text_style">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="rb_label_text_style">
+        <item name="android:textColor">#686868</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="profile_label_appearance">
+        <item name="android:textColor">#505050</item>
+        <item name="android:textSize">@dimen/_11ssp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="profile_edittext_value_appearance">
+        <item name="android:textColor">#505050</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="progress_dialog" parent="android:Theme.DeviceDefault.Light.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogSpotColor">@color/colorPrimary</item>
+        <item name="DialogSpotCount">4</item>
+    </style>
+
+    <style name="BoxInputLayoutOutlined" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/colorWhite</item>
+        <item name="boxStrokeWidth">@dimen/_2dp</item>
+    </style>
+
+
 </resources>
